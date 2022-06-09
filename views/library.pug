@@ -1,0 +1,13 @@
+extends layout 
+
+block layout-content 
+  h1 #{title}
+  - let address = library.querySelector("address").textContent;
+  - let phoneNo = library.querySelector("phoneNumber").textContent;
+  - let description = library.querySelector("description").textContent;
+  p #{address}
+  p #{phoneNo}
+
+  //extra challenge - '!' is an escape sequence that renders html and text accordingly
+  //source: https://riptutorial.com/pug/example/29559/raw-variable-interpolation-in-html
+  p !{description}

@@ -1,0 +1,12 @@
+extends layout 
+
+block layout-content 
+  h1 Toronto Public Library
+  form#libraryForm(action="/library", method="get", name="libraryForm")
+    label(for="libraryBranch") Select Library: 
+    select#libraryBranch(name="libraryBranch") 
+      each library in libraries 
+        - var lId = library.getAttribute("id");
+        - var lName = library.querySelector("name").textContent;
+        option(value=`${lId}`) #{lName}
+    input#viewDetailsBtn(type="submit", value="View Details")
